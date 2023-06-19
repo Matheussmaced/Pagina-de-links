@@ -1,0 +1,187 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --text-color: #fff;
+    --bg-url: url(./assets/bg-mobile.jpg);
+    --strok-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.1);
+    --surface-color-hover: rgba(255, 255, 255, 0.05);
+    --hightligh-color: rgba(255, 255, 255, 0.2);
+    --switch-bg-url: url(./assets/moon-stars.svg);
+    --border-color: #fff;
+}
+
+.light{
+    --text-color: black;
+    --bg-url: url(./assets/bg-mobile-light.jpg);
+    --strok-color: #000;
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(255, 255, 255, 0.2);
+    --hightligh-color: rgba(0, 0, 0, 0.1);
+    --switch-bg-url: url(./assets/sun.svg);
+    --border-color: #e7e7e7;
+}
+
+/*
+body{
+    background-image: url(./assets/bg-mobile.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: top;
+    background-size: cover;   Cobre todo o espaço vazio, contain irá ficar dentro do tamanho do body
+} */
+
+
+/*Agrupando o background tudo em uma unica setença*/
+
+body{
+    background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+}
+
+#container{
+    width: 360px;
+    margin: 56px auto;
+    padding: 0 24px;
+    
+}
+
+#profile{               /*Quando o display é Inline, o pai dele pode receber o text-align*/
+    text-align: center;
+    padding: 24px;
+    margin-top: 8px;
+    
+}
+
+#profile img{
+    width: 112px;         /*Elementos Inline por padrão, não irei conseguir aplicar o margin: auto*/
+    border: var(--border-color) solid 3px;
+    border-radius: 50%;
+}
+
+#profile p{
+    font-weight: 500;
+    line-height: 24px;
+}
+
+/*Switch*/
+
+#switch{
+    position: relative;  /*Ele ficará no mesmo container do switch*/
+    width: 64px;
+    margin: 0 auto;
+    cursor: pointer;
+
+}
+
+#switch button{
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    background: #fff var(--switch-bg-url) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+
+    position: absolute;  /*Ele fará um sobreposição de camadas*/
+    left: 0;
+    z-index: 1;
+    transform: translateY(-50%); /*Irá posicionar 50% do container que ele pertence*/
+    top: 50%;
+}
+
+.light #switch button{
+    right: 0;
+    left: initial; /*Volta para maneira inicial*/
+}
+
+#switch span{
+    display: block;
+    width: 64px;
+    height: 24px;
+
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    border-radius: 9999px;
+
+    
+}
+
+/* Links */
+
+ul{
+    list-style: none;
+    padding: 24px 0;
+}
+
+ul li a{
+    border: 1px solid var(--strok-color);
+    display: flex;     /*Caso eu coloque isso em link, ele ocupará todo o container*/
+    justify-content: center;  /*O text align não funcionará, quando se aplicado display flex, se fosse display block ai sim funcionaria*/  
+    align-items: center; /*Alinha os textos no meio da box*/
+    background: var(--surface-color);
+    margin-bottom: 16px;
+    border-radius: 8px;
+
+
+    backdrop-filter: blur(4px); /*Coloca um blur de px no meu elemento*/
+    -webkit-backdrop-filter: blur(4px);
+    padding: 16px 24px;
+
+    transition: background 0.2s; /*Velocidade de transição, posso selecionar só um elemento do hover ou posso selecionar all*/
+}
+
+a{
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#nome{
+    text-decoration-line: underline;
+}
+
+/*Pseudo-selector*/
+ul li a:hover{
+    background: var(--surface-color-hover);
+    border: 1px solid var(--text-color);
+}
+
+/*Icones*/
+
+#social-icons{
+    display: flex;
+    /*gap: 16px; Separar icones*/
+
+    padding: 24px 0;
+
+    font-size: 24px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#social-icons a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px; /*Vai separar os itens e não irá bugar na hora de passar o mouse por cima*/
+    border-radius: 50%;
+}
+
+#social-icons a:hover{
+    background-color: var(--hightligh-color);
+    transition: background 0.2s;
+}
+
+footer{
+    text-align: center;
+    padding: 24px 0;
+    font-size: 14px;
+}

@@ -44,4 +44,4 @@ Esse projeto está sob a licença MIT.
 
 ---
 
-Visualizaar o projeto: https://matheussmaced.github.io/Pagina-de-links
+Visualizar o projeto: https://matheussmaced.github.io/Pagina-de-links
